@@ -3,6 +3,8 @@ import React from 'react';
 import FormInput from '../FormInput/FormInput';
 import CustomButton from '../CustomButton/CustomButton';
 
+import { signInWithGoogle } from '../../firebase/firebase.utils';
+
 import './SignIn.styles.scss';
 
 class SignIn extends React.Component {
@@ -41,31 +43,35 @@ class SignIn extends React.Component {
         const { handleSubmit, handleChange } = this;
 
         return (
-            <div className='sign-in'>
-                <h2 className='title'>I already have an account</h2>
-                <span>Sign in with your email and password</span>
+          <div className="sign-in">
+            <h2 className="title">I already have an account</h2>
+            <span>Sign in with your email and password</span>
 
-                <form onSubmit={handleSubmit}>
-                    <FormInput 
-                        name='email'
-                        type='email' 
-                        value={email}
-                        handleChange={handleChange}
-                        label='email' 
-                        required 
-                    />
-                    <FormInput
-                        name='password'
-                        type='password'
-                        value={password}
-                        handleChange={handleChange}
-                        label='password'
-                        required
-                    />
-                    <CustomButton type="submit" value='Submit Form'>Sign in</CustomButton>
-                </form>
-            </div>
-        )
+            <form onSubmit={handleSubmit}>
+              <FormInput
+                name="email"
+                type="email"
+                value={email}
+                handleChange={handleChange}
+                label="email"
+                required
+              />
+              <FormInput
+                name="password"
+                type="password"
+                value={password}
+                handleChange={handleChange}
+                label="password"
+                required
+              />
+              <CustomButton type="submit">Sign in</CustomButton>
+              <CustomButton onClick={signInWithGoogle}>
+                {" "}
+                Sign in with Google{" "}
+              </CustomButton>
+            </form>
+          </div>
+        );
     }
 }
 
