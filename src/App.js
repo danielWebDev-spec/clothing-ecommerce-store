@@ -4,20 +4,18 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from './pages/HomePage/HomePage';
 import ShopPage from './pages/ShopPage/ShopPage';
+import SignInSignUpPage from './pages/SignInSignUpPage/SignInSignUpPage';
 import Header from './components/Header/Header';
 
-class App extends React.Component {
-  render(){
-    return (
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/shop' component={ShopPage} />
-        </Switch>
-      </div>
-    );
-  }
-}
-
+const App = () => (
+  <div className="App">
+    <Header />
+    <Switch>
+      <Route exact path='/' component={HomePage} />
+      <Route path='/shop' component={ShopPage} />
+      <Route path='/signin' component={SignInSignUpPage} />
+    </Switch>
+  </div>
+);
+  
 export default App;
